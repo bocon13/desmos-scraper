@@ -29,7 +29,7 @@ async function getCookies(url) {
     chrome.getCookies(url, 'puppeteer', function (err, cookies) {
       if (err) reject(err)
       else resolve(cookies)
-    })
+    }, 'Profile 3')
   })
 }
 
@@ -84,7 +84,7 @@ async function scrapeActivities() {
   process.stdout.write(`Loading assignments since ${dateFormat(DATE, 'm/dd/yy')}`)
 
   const browser = await puppeteer.launch({
-    headless: true  // set to false to watch the browser
+    headless: false  // set to false to watch the browser
   })
   const page = await browser.newPage()
   try {
